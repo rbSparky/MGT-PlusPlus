@@ -135,7 +135,7 @@ class StructureDataset(torch.utils.data.Dataset):
 
         props = [float(x) for x in self.id_prop_data[idx][1:]]
         props = np.array(props)
-        if props:
+        if props.size > 0:
             return g, lg, fg, torch.tensor(props, dtype=torch.float32), cif_id
         else:
             return g, lg, fg, cif_id

@@ -17,4 +17,4 @@ mgt.o*
 mgt.p*
 
 # Pycharm folder
-.idea/
+.idea/saved_models/*.ckpt
