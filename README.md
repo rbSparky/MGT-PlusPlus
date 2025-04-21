@@ -2,7 +2,7 @@
 
 ![results](https://github.com/rbSparky/MGT-PlusPlus/blob/main/output%20(11).png)
 
-This repository contains an enhanced implementation of the Molecular Graph Transformer (MGT) for predicting material properties. MGT-PlusPlus builds upon the original MGT architecture with several key improvements focused on efficiency, speed, and stability, while maintaining or improving predictive performance.
+This repository contains an enhanced implementation of the [Molecular Graph Transformer (MGT)](https://github.com/MolecularGraphTransformer/MGT) for predicting material properties. MGT-PlusPlus builds upon the original MGT architecture with several key improvements focused on efficiency, speed, and stability, while maintaining or improving predictive performance.
 
 **Key Improvements in MGT-PlusPlus:**
 
