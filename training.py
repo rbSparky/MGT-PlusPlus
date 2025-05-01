@@ -27,6 +27,15 @@ from utils.datasets import StructureDataset
 torch.backends.cudnn.benchmark = True
 torch.backends.cuda.matmul.allow_tf32 = True
 
+import warnings
+
+# Ignore exactly those lazyInitCUDA deprecation warnings:
+warnings.filterwarnings(
+    "ignore",
+    message=".*lazyInitCUDA is deprecated.*",
+    category=UserWarning
+)
+
 def clear_memory():
     """Run full CPU/GPU garbage collection to mitigate memory fragmentation."""
     gc.collect()
@@ -179,7 +188,11 @@ def main(args):
         epoch_start = time.time()
         model, optimizer, tr_loss = train(args, model, train_loader, optimizer, train_loss, fabric)
         fabric.print(f"Training time: {time.time() - epoch_start:.2f} s")
+        with open(osp.join(args.model_path, f"train_{epoch}.log"), "a") as f:
+            f.write(f"Epoch {epoch} | Loss: {tr_loss:.4f}\n")
         val_err, _ = validate(args, model, val_loader, val_loss, fabric)
+        with open(osp.join(args.model_path, f"val_{epoch}.log"), "a") as f:
+            f.write(f"Epoch {epoch} | Validation Error: {val_err:.4f}\n")        
         fabric.print(f"Epoch {epoch} validation complete")
         if val_err < best_error:
             best_error = val_err
@@ -238,6 +251,7 @@ if __name__ == "__main__":
     parser.add_argument("--embedding_dims", type=int, default=128)
     parser.add_argument("--hidden_dims", type=int, default=512)
     parser.add_argument("--out_dims", type=int, default=3)
+    parser.add_argument("--out_names", nargs="+", default=["bandgap", "HOMO", "LUMO"],help="Names for each output dimension")
     parser.add_argument("--num_layers", type=int, default=3)
     parser.add_argument("--n_mha", type=int, default=1)
     parser.add_argument("--n_alignn", type=int, default=2)
