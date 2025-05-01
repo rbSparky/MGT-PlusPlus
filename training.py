@@ -18,15 +18,15 @@ from lightning.fabric import Fabric
 from lightning.fabric.loggers import CSVLogger
 from lightning.fabric.strategies import FSDPStrategy
 from torch.utils.data import DataLoader
-
+from tqdm import tqdm
 from model.transformer import multiheaded
 from model.alignn import EdgeGatedGraphConv
 from model.graphformer import Graphformer, encoder
 from utils.datasets import StructureDataset
+import wandb
 
 torch.backends.cudnn.benchmark = True
 torch.backends.cuda.matmul.allow_tf32 = True
-
 import warnings
 
 # Ignore exactly those lazyInitCUDA deprecation warnings:
@@ -53,25 +53,46 @@ def train(args, model, loader, optimizer, criterion, fabric):
     optimizer.zero_grad(set_to_none=True)
     epoch_loss = torch.zeros(2, device=fabric.device)
     maybe_reset_peak_stats(fabric.device)
-    for iteration, (g, lg, fg, target, _) in enumerate(loader):
-        clear_memory()
-        g, lg, fg = g.to(fabric.device, non_blocking=True), lg.to(fabric.device, non_blocking=True), fg.to(fabric.device, non_blocking=True)
-        target = target.to(fabric.device, non_blocking=True)
-        is_accumulating = (iteration % args.n_cum) != 0
-        with torch.autocast(device_type=fabric.device.type, dtype=torch.float16, enabled=fabric.device.type == "cuda"):
-            with fabric.no_backward_sync(model, enabled=is_accumulating):
-                output, _, _, _, _ = model(g, lg, fg)
-                loss = criterion(output, target) / args.n_cum
-                fabric.backward(loss)
-        if not is_accumulating:
-            optimizer.step()
-            optimizer.zero_grad(set_to_none=True)
-            if fabric.device.type == "cuda":
-                torch.cuda.synchronize(device=fabric.device)
-        epoch_loss[0] += loss.detach().item() * args.n_cum
-        epoch_loss[1] += target.size(0)
-        del g, lg, fg, target, output, loss
-        clear_memory()
+
+    with tqdm(total=len(loader), desc="Training", unit="batch", disable=not fabric.is_global_zero) as pbar:
+        for iteration, (g, lg, fg, target, _) in enumerate(loader):
+            clear_memory()
+            g, lg, fg = g.to(fabric.device, non_blocking=True), lg.to(fabric.device, non_blocking=True), fg.to(fabric.device, non_blocking=True)
+            # print(g)
+            # print(lg)
+            # print(fg)
+            target = target.to(fabric.device, non_blocking=True)
+            is_accumulating = (iteration % args.n_cum) != 0
+            try:
+                with torch.autocast(device_type=fabric.device.type, dtype=torch.float16, enabled=fabric.device.type == "cuda"):
+                    with fabric.no_backward_sync(model, enabled=is_accumulating):
+                        output, _, _, _, _ = model(g, lg, fg)
+                        loss = criterion(output, target) / args.n_cum
+                        fabric.backward(loss)
+                if not is_accumulating:
+                    optimizer.step()
+                    optimizer.zero_grad(set_to_none=True)
+                    if fabric.device.type == "cuda":
+                        torch.cuda.synchronize(device=fabric.device)
+                epoch_loss[0] += loss.detach().item() * args.n_cum
+                epoch_loss[1] += target.size(0)
+                del g, lg, fg, target, output, loss
+                clear_memory()
+            except RuntimeError as e:
+                if "out of memory" in str(e):
+                    fabric.print(f"Out of memory at iteration {iteration}, skipping batch")
+                    print(f"Graph: {g}")
+                    print(f"Line Graph: {lg}")
+                    print(f"Full Graph: {fg}")
+                    torch.cuda.empty_cache()
+                    continue
+                else:
+                    print(f"Graph: {g}")
+                    print(f"Line Graph: {lg}")
+                    print(f"Full Graph: {fg}")
+                    raise e
+            pbar.update(1)
+            pbar.set_postfix({"loss": f"{epoch_loss[0] / epoch_loss[1]:.4f}"})
     fabric.all_reduce(epoch_loss, reduce_op="sum")
     epoch_loss_value = (epoch_loss[0] / epoch_loss[1]).item()
     fabric.print(f"Epoch loss: {epoch_loss_value:.4f}")
@@ -117,6 +138,7 @@ def validate(args, model, loader, criterion, fabric):
     return epoch_error_value, indiv_values
 
 def main(args):
+    wandb.init(project=args.wandb_project, name=args.run_name, config=vars(args))
     os.makedirs(args.model_path, exist_ok=True)
     logger = CSVLogger(root_dir=args.save_dir, name=args.run_name, flush_logs_every_n_steps=1)
     policy = {encoder, EdgeGatedGraphConv, multiheaded}
@@ -188,12 +210,15 @@ def main(args):
         epoch_start = time.time()
         model, optimizer, tr_loss = train(args, model, train_loader, optimizer, train_loss, fabric)
         fabric.print(f"Training time: {time.time() - epoch_start:.2f} s")
+        epoch_time = time.time() - epoch_start
+        wandb.log({"train_loss": tr_loss, "epoch": epoch, "epoch_time": epoch_time})
         with open(osp.join(args.model_path, f"train_{epoch}.log"), "a") as f:
             f.write(f"Epoch {epoch} | Loss: {tr_loss:.4f}\n")
         val_err, _ = validate(args, model, val_loader, val_loss, fabric)
         with open(osp.join(args.model_path, f"val_{epoch}.log"), "a") as f:
             f.write(f"Epoch {epoch} | Validation Error: {val_err:.4f}\n")        
         fabric.print(f"Epoch {epoch} validation complete")
+        wandb.log({"val_error": val_err, "epoch": epoch})
         if val_err < best_error:
             best_error = val_err
             save_path = osp.join(args.model_path, args.lowest_model)
@@ -210,6 +235,8 @@ def main(args):
     fabric.save(final_model_path, {"models": model, "optimizer": optimizer})
     fabric.print(f"Final model saved to {final_model_path}")
     fabric.print("-------------------- Training Finished --------------------")
+    wandb.finish()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -217,6 +244,7 @@ if __name__ == "__main__":
     parser.add_argument("--n_nodes", type=int, default=1)
     parser.add_argument("--accelerator", type=str, default="cuda",
                         choices=["cpu", "gpu", "mps", "cuda", "tpu"])
+    parser.add_argument("--wandb_project", type=str, default="MGT")
     parser.add_argument("--root", required=True)
     parser.add_argument("--model_path", required=True)
     parser.add_argument("--save_dir", default=None)
