@@ -1,3 +1,4 @@
+from torch_geometric.nn import GCNConv
 import dgl_patch as dgl
 import torch
 from torch import nn, Tensor
@@ -6,6 +7,50 @@ from typing import Optional
 import model.alignn as alignn
 import model.transformer as transformer
 import modules.modules as modules
+import torch.nn.functional as F
+
+class DiffPool(torch.nn.Module):
+    def __init__(self, in_channels, hidden_channels, assign_channels, num_clusters,
+                adj_pool=False):
+        super().__init__()
+        self.gnn_embed = GCNConv(in_channels, hidden_channels)
+        self.gnn_assign = GCNConv(in_channels, assign_channels)
+        self.lin_assign = torch.nn.Linear(assign_channels, num_clusters)
+        self.adj_pool = adj_pool  
+    def forward(self, x, edge_index, batch=None):
+        z = F.relu(self.gnn_embed(x, edge_index)) ## just an embedding        
+        s = F.relu(self.gnn_assign(x, edge_index)) ## embeddings to calculate assignment scores
+        s = self.lin_assign(s)                     ## assignment scores to each cluster      
+        s = F.softmax(s, dim=-1)                   ## probabilities of each node to each cluster
+        x_pool = torch.matmul(s.transpose(0,1), z)       ## pooled node features
+        if adj_pool:
+            adj = torch.zeros(x.size(0), x.size(0), device=x.device) ## adjacency matrix
+            adj[edge_index[0], edge_index[1]] = 1 
+            adj_pool = s.transpose(0,1) @ adj @ s
+            output = (x_pool, adj_pool,s)     
+        else:
+            output = x_pool
+        return output
+
+
+class DiffPoolLayer(torch.nn.Module):
+    def __init__(self, in_channels, hidden_channels, assign_channels, num_clusters,
+                adj_pool=False):
+        super().__init__()
+        self.diffpool = DiffPool(in_channels, hidden_channels, assign_channels, num_clusters, adj_pool)
+        self.lin = torch.nn.Linear(hidden_channels, in_channels)
+        self.norm = torch.nn.LayerNorm(in_channels)
+        self.activation = torch.nn.SiLU()
+        self.adj_pool = adj_pool
+    def forward(self, x, edge_index, batch=None):
+        x = self.diffpool(x, edge_index, batch)
+        if self.adj_pool:
+            x, adj_pool, s = x
+            # x = torch.cat([x, adj_pool], dim=1)
+        x = self.lin(x)
+        x = self.norm(x)
+        x = self.activation(x)
+        return x
 
 class LowRankLinear(nn.Module):
     def __init__(self, in_features: int, out_features: int, rank_factor: int = 4, bias: bool = True):
@@ -35,7 +80,9 @@ class LowRankLinear(nn.Module):
               return f"LowRankLinear(in={in_f}, out={out_f}, rank={rank})"
          else:
               return f"{self.layer}"
-        
+      
+
+      
 class encoder(nn.Module):
     def __init__(self, encoder_dims: int, n_heads: int = 4, n_mha: int = 1, n_alignn: int = 4, n_gnn: int = 4,
                  residual: bool = True, norm: bool = True, last: bool = False, seq_len: int = 256,
@@ -94,6 +141,12 @@ class Graphformer(nn.Module):
     def __init__(self, args):
         super(Graphformer, self).__init__()
         self.rank_factor = getattr(args, "rank_factor", 0)
+
+        if(args.graph_coarsening):
+            self.diffpool = DiffPoolLayer(args.num_atom_fea, args.hidden_dims, args.hidden_dims, args.num_clusters,
+                                          adj_pool=args.adj_pool)
+            self.diffpool2 = DiffPoolLayer(args.hidden_dims, args.hidden_dims, args.hidden_dims, args.num_clusters,
+                                          adj_pool=args.adj_pool)
         self.atom_embedding = modules.MLPLayer(args.num_atom_fea, args.hidden_dims, rank_factor=self.rank_factor)
         self.positional_embedding = modules.MLPLayer(args.num_pe_fea, args.hidden_dims, rank_factor=self.rank_factor)
 

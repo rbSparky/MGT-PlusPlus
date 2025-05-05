@@ -258,6 +258,8 @@ if __name__ == "__main__":
     parser.add_argument("--n_gnn", type=int, default=2)
     parser.add_argument("--n_heads", type=int, default=4)
     parser.add_argument("--residual", type=int, default=1, choices=[0, 1])
+    parser.add_argument("--diffpool", action="store_true", default=False)
+    
     args = parser.parse_args()
     args.residual = bool(args.residual)
     args.periodic = bool(args.periodic)
