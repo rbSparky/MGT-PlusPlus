@@ -1,0 +1,5 @@
+processed/
+raw/
+__pycache__/
+results.txt
+temp.*
