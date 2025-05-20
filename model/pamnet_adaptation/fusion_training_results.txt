@@ -1,0 +1,814 @@
+-------------------- Training Started --------------------
+Training:   0%|                                                                                                          | 0/6 [00:00<?, ?batch/s]/home/saigum/Desktop/MGT-PlusPlus/mgt/lib/python3.10/site-packages/dgl/backend/pytorch/sparse.py:157: FutureWarning: `torch.cuda.amp.autocast_mode._cast(value, dtype)` is deprecated. Please use `torch.amp.autocast_mode._cast(value, 'cuda', dtype)` instead.
+  return th.cuda.amp.autocast_mode._cast(
+/home/saigum/Desktop/MGT-PlusPlus/mgt/lib/python3.10/site-packages/dgl/backend/pytorch/sparse.py:148: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  return th.cuda.amp.autocast(enabled=False)
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.16s/batch, loss=1.2029]
+Epoch loss: 1.2029
+Training time: 6.96 s
+Validating...
+End of validation loop
+Validation error: 0.7989 | bandgap Error: 0.3463 | HOMO Error: 0.7896 | LUMO Error: 1.2607
+Epoch 1 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 1/100 in 9.26 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.14batch/s, loss=0.7113]
+Epoch loss: 0.7113
+Training time: 5.29 s
+Validating...
+End of validation loop
+Validation error: 0.8618 | bandgap Error: 1.1213 | HOMO Error: 0.4931 | LUMO Error: 0.9712
+Epoch 2 validation complete
+Completed Epoch 2/100 in 7.28 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.13batch/s, loss=0.6944]
+Epoch loss: 0.6944
+Training time: 5.29 s
+Validating...
+End of validation loop
+Validation error: 0.6427 | bandgap Error: 0.6866 | HOMO Error: 0.9467 | LUMO Error: 0.2949
+Epoch 3 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 3/100 in 7.90 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.02batch/s, loss=1.1266]
+Epoch loss: 1.1266
+Training time: 5.87 s
+Validating...
+End of validation loop
+Validation error: 1.0297 | bandgap Error: 1.2491 | HOMO Error: 1.5745 | LUMO Error: 0.2655
+Epoch 4 validation complete
+Completed Epoch 4/100 in 7.46 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.01batch/s, loss=1.3684]
+Epoch loss: 1.3684
+Training time: 5.95 s
+Validating...
+End of validation loop
+Validation error: 1.3224 | bandgap Error: 1.9926 | HOMO Error: 1.4280 | LUMO Error: 0.5465
+Epoch 5 validation complete
+Completed Epoch 5/100 in 7.83 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.05batch/s, loss=0.9890]
+Epoch loss: 0.9890
+Training time: 5.74 s
+Validating...
+End of validation loop
+Validation error: 1.1594 | bandgap Error: 1.9458 | HOMO Error: 0.8155 | LUMO Error: 0.7170
+Epoch 6 validation complete
+Completed Epoch 6/100 in 7.35 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.04batch/s, loss=0.6275]
+Epoch loss: 0.6275
+Training time: 5.77 s
+Validating...
+End of validation loop
+Validation error: 0.7788 | bandgap Error: 1.1744 | HOMO Error: 0.4794 | LUMO Error: 0.6827
+Epoch 7 validation complete
+Completed Epoch 7/100 in 7.69 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.17batch/s, loss=0.4400]
+Epoch loss: 0.4400
+Training time: 5.14 s
+Validating...
+End of validation loop
+Validation error: 0.5154 | bandgap Error: 0.4209 | HOMO Error: 0.5910 | LUMO Error: 0.5343
+Epoch 8 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 8/100 in 7.64 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.15s/batch, loss=0.6110]
+Epoch loss: 0.6110
+Training time: 6.90 s
+Validating...
+End of validation loop
+Validation error: 0.4448 | bandgap Error: 0.1798 | HOMO Error: 0.5930 | LUMO Error: 0.5617
+Epoch 9 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 9/100 in 9.24 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.12batch/s, loss=0.5797]
+Epoch loss: 0.5797
+Training time: 5.36 s
+Validating...
+End of validation loop
+Validation error: 0.3995 | bandgap Error: 0.2016 | HOMO Error: 0.4791 | LUMO Error: 0.5180
+Epoch 10 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 10/100 in 7.68 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.01s/batch, loss=0.4354]
+Epoch loss: 0.4354
+Training time: 6.05 s
+Validating...
+End of validation loop
+Validation error: 0.4789 | bandgap Error: 0.4733 | HOMO Error: 0.5032 | LUMO Error: 0.4602
+Epoch 11 validation complete
+Completed Epoch 11/100 in 7.93 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.13batch/s, loss=0.4999]
+Epoch loss: 0.4999
+Training time: 5.31 s
+Validating...
+End of validation loop
+Validation error: 0.7400 | bandgap Error: 1.0617 | HOMO Error: 0.6937 | LUMO Error: 0.4646
+Epoch 12 validation complete
+Completed Epoch 12/100 in 6.93 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.00s/batch, loss=0.5940]
+Epoch loss: 0.5940
+Training time: 6.01 s
+Validating...
+End of validation loop
+Validation error: 0.9354 | bandgap Error: 1.5376 | HOMO Error: 0.7427 | LUMO Error: 0.5257
+Epoch 13 validation complete
+Completed Epoch 13/100 in 7.84 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.13batch/s, loss=0.9037]
+Epoch loss: 0.9037
+Training time: 5.29 s
+Validating...
+End of validation loop
+Validation error: 1.0942 | bandgap Error: 1.9273 | HOMO Error: 0.8075 | LUMO Error: 0.5477
+Epoch 14 validation complete
+Completed Epoch 14/100 in 7.11 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.03batch/s, loss=0.9819]
+Epoch loss: 0.9819
+Training time: 5.81 s
+Validating...
+End of validation loop
+Validation error: 1.1194 | bandgap Error: 1.9971 | HOMO Error: 0.8223 | LUMO Error: 0.5389
+Epoch 15 validation complete
+Completed Epoch 15/100 in 7.48 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.02s/batch, loss=0.8033]
+Epoch loss: 0.8033
+Training time: 6.15 s
+Validating...
+End of validation loop
+Validation error: 0.9490 | bandgap Error: 1.6857 | HOMO Error: 0.7000 | LUMO Error: 0.4613
+Epoch 16 validation complete
+Completed Epoch 16/100 in 8.35 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.00s/batch, loss=0.6654]
+Epoch loss: 0.6654
+Training time: 6.01 s
+Validating...
+End of validation loop
+Validation error: 0.9450 | bandgap Error: 1.6733 | HOMO Error: 0.7008 | LUMO Error: 0.4607
+Epoch 17 validation complete
+Completed Epoch 17/100 in 9.02 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.28batch/s, loss=0.4680]
+Epoch loss: 0.4680
+Training time: 4.69 s
+Validating...
+End of validation loop
+Validation error: 0.8095 | bandgap Error: 1.3580 | HOMO Error: 0.6507 | LUMO Error: 0.4198
+Epoch 18 validation complete
+Completed Epoch 18/100 in 6.32 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.10batch/s, loss=0.4901]
+Epoch loss: 0.4901
+Training time: 5.46 s
+Validating...
+End of validation loop
+Validation error: 0.5339 | bandgap Error: 0.7639 | HOMO Error: 0.5397 | LUMO Error: 0.2982
+Epoch 19 validation complete
+Completed Epoch 19/100 in 7.44 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.18batch/s, loss=0.4169]
+Epoch loss: 0.4169
+Training time: 5.10 s
+Validating...
+End of validation loop
+Validation error: 0.3430 | bandgap Error: 0.2904 | HOMO Error: 0.5048 | LUMO Error: 0.2336
+Epoch 20 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 20/100 in 7.62 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.04s/batch, loss=0.5088]
+Epoch loss: 0.5088
+Training time: 6.27 s
+Validating...
+End of validation loop
+Validation error: 0.3025 | bandgap Error: 0.1703 | HOMO Error: 0.4749 | LUMO Error: 0.2624
+Epoch 21 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 21/100 in 10.02 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.02batch/s, loss=0.5957]
+Epoch loss: 0.5957
+Training time: 5.92 s
+Validating...
+End of validation loop
+Validation error: 0.3301 | bandgap Error: 0.1661 | HOMO Error: 0.4113 | LUMO Error: 0.4129
+Epoch 22 validation complete
+Completed Epoch 22/100 in 7.87 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.09batch/s, loss=0.5557]
+Epoch loss: 0.5557
+Training time: 5.53 s
+Validating...
+End of validation loop
+Validation error: 0.4459 | bandgap Error: 0.2250 | HOMO Error: 0.5090 | LUMO Error: 0.6036
+Epoch 23 validation complete
+Completed Epoch 23/100 in 7.19 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.12batch/s, loss=0.4981]
+Epoch loss: 0.4981
+Training time: 5.35 s
+Validating...
+End of validation loop
+Validation error: 0.5681 | bandgap Error: 0.4427 | HOMO Error: 0.4947 | LUMO Error: 0.7668
+Epoch 24 validation complete
+Completed Epoch 24/100 in 7.29 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.16batch/s, loss=0.5136]
+Epoch loss: 0.5136
+Training time: 5.19 s
+Validating...
+End of validation loop
+Validation error: 0.6723 | bandgap Error: 0.7824 | HOMO Error: 0.4302 | LUMO Error: 0.8044
+Epoch 25 validation complete
+Completed Epoch 25/100 in 6.85 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:07<00:00,  1.21s/batch, loss=0.4160]
+Epoch loss: 0.4160
+Training time: 7.28 s
+Validating...
+End of validation loop
+Validation error: 0.7528 | bandgap Error: 1.0677 | HOMO Error: 0.5374 | LUMO Error: 0.6532
+Epoch 26 validation complete
+Completed Epoch 26/100 in 9.14 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.15batch/s, loss=0.4074]
+Epoch loss: 0.4074
+Training time: 5.23 s
+Validating...
+End of validation loop
+Validation error: 0.7783 | bandgap Error: 1.1913 | HOMO Error: 0.6784 | LUMO Error: 0.4653
+Epoch 27 validation complete
+Completed Epoch 27/100 in 7.08 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.13batch/s, loss=0.5299]
+Epoch loss: 0.5299
+Training time: 5.33 s
+Validating...
+End of validation loop
+Validation error: 0.7058 | bandgap Error: 1.1167 | HOMO Error: 0.7295 | LUMO Error: 0.2711
+Epoch 28 validation complete
+Completed Epoch 28/100 in 7.01 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.06batch/s, loss=0.5697]
+Epoch loss: 0.5697
+Training time: 5.65 s
+Validating...
+End of validation loop
+Validation error: 0.7081 | bandgap Error: 0.9927 | HOMO Error: 0.7792 | LUMO Error: 0.3523
+Epoch 29 validation complete
+Completed Epoch 29/100 in 7.50 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.05batch/s, loss=0.5699]
+Epoch loss: 0.5699
+Training time: 5.71 s
+Validating...
+End of validation loop
+Validation error: 0.6281 | bandgap Error: 0.8407 | HOMO Error: 0.6702 | LUMO Error: 0.3733
+Epoch 30 validation complete
+Completed Epoch 30/100 in 7.53 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.06batch/s, loss=0.5307]
+Epoch loss: 0.5307
+Training time: 5.66 s
+Validating...
+End of validation loop
+Validation error: 0.4546 | bandgap Error: 0.6052 | HOMO Error: 0.4762 | LUMO Error: 0.2824
+Epoch 31 validation complete
+Completed Epoch 31/100 in 7.30 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.19batch/s, loss=0.4671]
+Epoch loss: 0.4671
+Training time: 5.03 s
+Validating...
+End of validation loop
+Validation error: 0.4137 | bandgap Error: 0.4385 | HOMO Error: 0.4931 | LUMO Error: 0.3094
+Epoch 32 validation complete
+Completed Epoch 32/100 in 6.91 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.21batch/s, loss=0.5735]
+Epoch loss: 0.5735
+Training time: 4.97 s
+Validating...
+End of validation loop
+Validation error: 0.4770 | bandgap Error: 0.2966 | HOMO Error: 0.6327 | LUMO Error: 0.5016
+Epoch 33 validation complete
+Completed Epoch 33/100 in 6.79 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.14batch/s, loss=0.7154]
+Epoch loss: 0.7154
+Training time: 5.27 s
+Validating...
+End of validation loop
+Validation error: 0.5842 | bandgap Error: 0.2807 | HOMO Error: 0.7033 | LUMO Error: 0.7686
+Epoch 34 validation complete
+Completed Epoch 34/100 in 7.04 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.08s/batch, loss=0.7238]
+Epoch loss: 0.7238
+Training time: 6.48 s
+Validating...
+End of validation loop
+Validation error: 0.6378 | bandgap Error: 0.2914 | HOMO Error: 0.6402 | LUMO Error: 0.9819
+Epoch 35 validation complete
+Completed Epoch 35/100 in 8.33 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.10batch/s, loss=0.6907]
+Epoch loss: 0.6907
+Training time: 5.48 s
+Validating...
+End of validation loop
+Validation error: 0.6564 | bandgap Error: 0.3454 | HOMO Error: 0.5585 | LUMO Error: 1.0654
+Epoch 36 validation complete
+Completed Epoch 36/100 in 7.38 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.17batch/s, loss=0.5555]
+Epoch loss: 0.5555
+Training time: 5.13 s
+Validating...
+End of validation loop
+Validation error: 0.6979 | bandgap Error: 0.5612 | HOMO Error: 0.4380 | LUMO Error: 1.0944
+Epoch 37 validation complete
+Completed Epoch 37/100 in 6.82 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.00batch/s, loss=0.4868]
+Epoch loss: 0.4868
+Training time: 6.00 s
+Validating...
+End of validation loop
+Validation error: 0.6855 | bandgap Error: 0.6779 | HOMO Error: 0.5003 | LUMO Error: 0.8782
+Epoch 38 validation complete
+Completed Epoch 38/100 in 7.84 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.03s/batch, loss=0.3848]
+Epoch loss: 0.3848
+Training time: 6.19 s
+Validating...
+End of validation loop
+Validation error: 0.7029 | bandgap Error: 0.8664 | HOMO Error: 0.6448 | LUMO Error: 0.5975
+Epoch 39 validation complete
+Completed Epoch 39/100 in 7.99 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.20batch/s, loss=0.3962]
+Epoch loss: 0.3962
+Training time: 4.99 s
+Validating...
+End of validation loop
+Validation error: 0.7493 | bandgap Error: 1.0358 | HOMO Error: 0.7708 | LUMO Error: 0.4414
+Epoch 40 validation complete
+Completed Epoch 40/100 in 6.64 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.22batch/s, loss=0.4466]
+Epoch loss: 0.4466
+Training time: 4.93 s
+Validating...
+End of validation loop
+Validation error: 0.7849 | bandgap Error: 1.1757 | HOMO Error: 0.8441 | LUMO Error: 0.3348
+Epoch 41 validation complete
+Completed Epoch 41/100 in 6.83 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.13batch/s, loss=0.5680]
+Epoch loss: 0.5680
+Training time: 5.31 s
+Validating...
+End of validation loop
+Validation error: 0.7633 | bandgap Error: 1.2089 | HOMO Error: 0.8334 | LUMO Error: 0.2475
+Epoch 42 validation complete
+Completed Epoch 42/100 in 7.19 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.18batch/s, loss=0.6120]
+Epoch loss: 0.6120
+Training time: 5.10 s
+Validating...
+End of validation loop
+Validation error: 0.7910 | bandgap Error: 1.3117 | HOMO Error: 0.7850 | LUMO Error: 0.2763
+Epoch 43 validation complete
+Completed Epoch 43/100 in 6.77 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.01s/batch, loss=0.6022]
+Epoch loss: 0.6022
+Training time: 6.04 s
+Validating...
+End of validation loop
+Validation error: 0.8102 | bandgap Error: 1.4285 | HOMO Error: 0.7575 | LUMO Error: 0.2445
+Epoch 44 validation complete
+Completed Epoch 44/100 in 7.87 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.01s/batch, loss=0.5283]
+Epoch loss: 0.5283
+Training time: 6.08 s
+Validating...
+End of validation loop
+Validation error: 0.8007 | bandgap Error: 1.4130 | HOMO Error: 0.6933 | LUMO Error: 0.2957
+Epoch 45 validation complete
+Completed Epoch 45/100 in 8.03 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.04batch/s, loss=0.4291]
+Epoch loss: 0.4291
+Training time: 5.78 s
+Validating...
+End of validation loop
+Validation error: 0.7896 | bandgap Error: 1.3359 | HOMO Error: 0.5996 | LUMO Error: 0.4333
+Epoch 46 validation complete
+Completed Epoch 46/100 in 7.41 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.09batch/s, loss=0.4261]
+Epoch loss: 0.4261
+Training time: 5.52 s
+Validating...
+End of validation loop
+Validation error: 0.7801 | bandgap Error: 1.2256 | HOMO Error: 0.5612 | LUMO Error: 0.5534
+Epoch 47 validation complete
+Completed Epoch 47/100 in 7.42 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.02s/batch, loss=0.3768]
+Epoch loss: 0.3768
+Training time: 6.12 s
+Validating...
+End of validation loop
+Validation error: 0.8144 | bandgap Error: 1.0974 | HOMO Error: 0.5957 | LUMO Error: 0.7502
+Epoch 48 validation complete
+Completed Epoch 48/100 in 7.95 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.03s/batch, loss=0.4384]
+Epoch loss: 0.4384
+Training time: 6.18 s
+Validating...
+End of validation loop
+Validation error: 0.7980 | bandgap Error: 0.9051 | HOMO Error: 0.6626 | LUMO Error: 0.8263
+Epoch 49 validation complete
+Completed Epoch 49/100 in 7.82 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.20batch/s, loss=0.4122]
+Epoch loss: 0.4122
+Training time: 4.99 s
+Validating...
+End of validation loop
+Validation error: 0.8054 | bandgap Error: 0.8441 | HOMO Error: 0.7176 | LUMO Error: 0.8545
+Epoch 50 validation complete
+Completed Epoch 50/100 in 6.84 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.14batch/s, loss=0.3897]
+Epoch loss: 0.3897
+Training time: 5.27 s
+Validating...
+End of validation loop
+Validation error: 0.7100 | bandgap Error: 0.7263 | HOMO Error: 0.6953 | LUMO Error: 0.7083
+Epoch 51 validation complete
+Completed Epoch 51/100 in 7.08 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.11s/batch, loss=0.3231]
+Epoch loss: 0.3231
+Training time: 6.67 s
+Validating...
+End of validation loop
+Validation error: 0.5809 | bandgap Error: 0.6060 | HOMO Error: 0.6435 | LUMO Error: 0.4932
+Epoch 52 validation complete
+Completed Epoch 52/100 in 8.77 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.07s/batch, loss=0.3138]
+Epoch loss: 0.3138
+Training time: 6.44 s
+Validating...
+End of validation loop
+Validation error: 0.5228 | bandgap Error: 0.5689 | HOMO Error: 0.6321 | LUMO Error: 0.3674
+Epoch 53 validation complete
+Completed Epoch 53/100 in 8.52 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.07s/batch, loss=0.3634]
+Epoch loss: 0.3634
+Training time: 6.42 s
+Validating...
+End of validation loop
+Validation error: 0.4964 | bandgap Error: 0.6153 | HOMO Error: 0.6165 | LUMO Error: 0.2575
+Epoch 54 validation complete
+Completed Epoch 54/100 in 8.28 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.03batch/s, loss=0.3892]
+Epoch loss: 0.3892
+Training time: 5.82 s
+Validating...
+End of validation loop
+Validation error: 0.5405 | bandgap Error: 0.7365 | HOMO Error: 0.6204 | LUMO Error: 0.2646
+Epoch 55 validation complete
+Completed Epoch 55/100 in 7.46 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.01s/batch, loss=0.4234]
+Epoch loss: 0.4234
+Training time: 6.05 s
+Validating...
+End of validation loop
+Validation error: 0.6058 | bandgap Error: 0.9112 | HOMO Error: 0.6591 | LUMO Error: 0.2470
+Epoch 56 validation complete
+Completed Epoch 56/100 in 7.90 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.04batch/s, loss=0.4213]
+Epoch loss: 0.4213
+Training time: 5.80 s
+Validating...
+End of validation loop
+Validation error: 0.7034 | bandgap Error: 1.1200 | HOMO Error: 0.6966 | LUMO Error: 0.2935
+Epoch 57 validation complete
+Completed Epoch 57/100 in 7.61 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.09batch/s, loss=0.4124]
+Epoch loss: 0.4124
+Training time: 5.50 s
+Validating...
+End of validation loop
+Validation error: 0.7507 | bandgap Error: 1.1949 | HOMO Error: 0.7133 | LUMO Error: 0.3440
+Epoch 58 validation complete
+Completed Epoch 58/100 in 7.28 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.08batch/s, loss=0.3714]
+Epoch loss: 0.3714
+Training time: 5.58 s
+Validating...
+End of validation loop
+Validation error: 0.7429 | bandgap Error: 1.1451 | HOMO Error: 0.6798 | LUMO Error: 0.4038
+Epoch 59 validation complete
+Completed Epoch 59/100 in 7.46 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.17batch/s, loss=0.3239]
+Epoch loss: 0.3239
+Training time: 5.12 s
+Validating...
+End of validation loop
+Validation error: 0.7516 | bandgap Error: 1.1216 | HOMO Error: 0.6533 | LUMO Error: 0.4800
+Epoch 60 validation complete
+Completed Epoch 60/100 in 6.96 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.07batch/s, loss=0.3771]
+Epoch loss: 0.3771
+Training time: 5.63 s
+Validating...
+End of validation loop
+Validation error: 0.7702 | bandgap Error: 1.0798 | HOMO Error: 0.6487 | LUMO Error: 0.5822
+Epoch 61 validation complete
+Completed Epoch 61/100 in 7.26 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.18batch/s, loss=0.4069]
+Epoch loss: 0.4069
+Training time: 5.09 s
+Validating...
+End of validation loop
+Validation error: 0.8222 | bandgap Error: 1.1009 | HOMO Error: 0.6383 | LUMO Error: 0.7273
+Epoch 62 validation complete
+Completed Epoch 62/100 in 7.01 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.26batch/s, loss=0.4287]
+Epoch loss: 0.4287
+Training time: 4.77 s
+Validating...
+End of validation loop
+Validation error: 0.8909 | bandgap Error: 1.1683 | HOMO Error: 0.6593 | LUMO Error: 0.8450
+Epoch 63 validation complete
+Completed Epoch 63/100 in 6.60 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.07batch/s, loss=0.5308]
+Epoch loss: 0.5308
+Training time: 5.61 s
+Validating...
+End of validation loop
+Validation error: 0.8771 | bandgap Error: 1.1604 | HOMO Error: 0.6849 | LUMO Error: 0.7861
+Epoch 64 validation complete
+Completed Epoch 64/100 in 7.26 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.06batch/s, loss=0.3703]
+Epoch loss: 0.3703
+Training time: 5.66 s
+Validating...
+End of validation loop
+Validation error: 0.7988 | bandgap Error: 1.0736 | HOMO Error: 0.6966 | LUMO Error: 0.6261
+Epoch 65 validation complete
+Completed Epoch 65/100 in 7.50 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.22batch/s, loss=0.3212]
+Epoch loss: 0.3212
+Training time: 4.94 s
+Validating...
+End of validation loop
+Validation error: 0.7012 | bandgap Error: 0.9465 | HOMO Error: 0.6993 | LUMO Error: 0.4578
+Epoch 66 validation complete
+Completed Epoch 66/100 in 6.78 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.10batch/s, loss=0.3384]
+Epoch loss: 0.3384
+Training time: 5.44 s
+Validating...
+End of validation loop
+Validation error: 0.5797 | bandgap Error: 0.7694 | HOMO Error: 0.6285 | LUMO Error: 0.3411
+Epoch 67 validation complete
+Completed Epoch 67/100 in 7.16 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.07batch/s, loss=0.3289]
+Epoch loss: 0.3289
+Training time: 5.63 s
+Validating...
+End of validation loop
+Validation error: 0.5256 | bandgap Error: 0.6983 | HOMO Error: 0.5950 | LUMO Error: 0.2836
+Epoch 68 validation complete
+Completed Epoch 68/100 in 7.67 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.03batch/s, loss=0.3506]
+Epoch loss: 0.3506
+Training time: 5.85 s
+Validating...
+End of validation loop
+Validation error: 0.5229 | bandgap Error: 0.7339 | HOMO Error: 0.5631 | LUMO Error: 0.2716
+Epoch 69 validation complete
+Completed Epoch 69/100 in 8.60 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.13batch/s, loss=0.3280]
+Epoch loss: 0.3280
+Training time: 5.32 s
+Validating...
+End of validation loop
+Validation error: 0.4804 | bandgap Error: 0.6662 | HOMO Error: 0.5045 | LUMO Error: 0.2705
+Epoch 70 validation complete
+Completed Epoch 70/100 in 7.16 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.05s/batch, loss=0.2993]
+Epoch loss: 0.2993
+Training time: 6.32 s
+Validating...
+End of validation loop
+Validation error: 0.4732 | bandgap Error: 0.6026 | HOMO Error: 0.5201 | LUMO Error: 0.2970
+Epoch 71 validation complete
+Completed Epoch 71/100 in 8.20 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.13batch/s, loss=0.3477]
+Epoch loss: 0.3477
+Training time: 5.30 s
+Validating...
+End of validation loop
+Validation error: 0.4806 | bandgap Error: 0.5603 | HOMO Error: 0.5576 | LUMO Error: 0.3239
+Epoch 72 validation complete
+Completed Epoch 72/100 in 7.24 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.17batch/s, loss=0.3135]
+Epoch loss: 0.3135
+Training time: 5.12 s
+Validating...
+End of validation loop
+Validation error: 0.5582 | bandgap Error: 0.6490 | HOMO Error: 0.6214 | LUMO Error: 0.4044
+Epoch 73 validation complete
+Completed Epoch 73/100 in 6.79 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.12s/batch, loss=0.3347]
+Epoch loss: 0.3347
+Training time: 6.71 s
+Validating...
+End of validation loop
+Validation error: 0.6330 | bandgap Error: 0.7585 | HOMO Error: 0.6466 | LUMO Error: 0.4939
+Epoch 74 validation complete
+Completed Epoch 74/100 in 8.74 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.07s/batch, loss=0.3262]
+Epoch loss: 0.3262
+Training time: 6.42 s
+Validating...
+End of validation loop
+Validation error: 0.7214 | bandgap Error: 0.9297 | HOMO Error: 0.6650 | LUMO Error: 0.5694
+Epoch 75 validation complete
+Completed Epoch 75/100 in 8.21 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.15batch/s, loss=0.3533]
+Epoch loss: 0.3533
+Training time: 5.22 s
+Validating...
+End of validation loop
+Validation error: 0.8158 | bandgap Error: 1.0785 | HOMO Error: 0.6406 | LUMO Error: 0.7284
+Epoch 76 validation complete
+Completed Epoch 76/100 in 6.85 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.09batch/s, loss=0.4260]
+Epoch loss: 0.4260
+Training time: 5.51 s
+Validating...
+End of validation loop
+Validation error: 0.8584 | bandgap Error: 1.1633 | HOMO Error: 0.6041 | LUMO Error: 0.8079
+Epoch 77 validation complete
+Completed Epoch 77/100 in 7.35 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.00s/batch, loss=0.4082]
+Epoch loss: 0.4082
+Training time: 6.03 s
+Validating...
+End of validation loop
+Validation error: 0.8857 | bandgap Error: 1.2230 | HOMO Error: 0.6080 | LUMO Error: 0.8259
+Epoch 78 validation complete
+Completed Epoch 78/100 in 7.83 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.09batch/s, loss=0.4851]
+Epoch loss: 0.4851
+Training time: 5.49 s
+Validating...
+End of validation loop
+Validation error: 0.8193 | bandgap Error: 1.1604 | HOMO Error: 0.5498 | LUMO Error: 0.7476
+Epoch 79 validation complete
+Completed Epoch 79/100 in 7.13 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.20batch/s, loss=0.3692]
+Epoch loss: 0.3692
+Training time: 5.00 s
+Validating...
+End of validation loop
+Validation error: 0.7244 | bandgap Error: 1.0316 | HOMO Error: 0.5136 | LUMO Error: 0.6279
+Epoch 80 validation complete
+Completed Epoch 80/100 in 6.81 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.17batch/s, loss=0.3022]
+Epoch loss: 0.3022
+Training time: 5.13 s
+Validating...
+End of validation loop
+Validation error: 0.6445 | bandgap Error: 0.9058 | HOMO Error: 0.4905 | LUMO Error: 0.5373
+Epoch 81 validation complete
+Completed Epoch 81/100 in 6.99 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.03batch/s, loss=0.2675]
+Epoch loss: 0.2675
+Training time: 5.84 s
+Validating...
+End of validation loop
+Validation error: 0.5687 | bandgap Error: 0.7386 | HOMO Error: 0.5016 | LUMO Error: 0.4657
+Epoch 82 validation complete
+Completed Epoch 82/100 in 8.48 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.15batch/s, loss=0.3645]
+Epoch loss: 0.3645
+Training time: 5.22 s
+Validating...
+End of validation loop
+Validation error: 0.4954 | bandgap Error: 0.5850 | HOMO Error: 0.4957 | LUMO Error: 0.4055
+Epoch 83 validation complete
+Completed Epoch 83/100 in 7.20 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.03batch/s, loss=0.3737]
+Epoch loss: 0.3737
+Training time: 5.84 s
+Validating...
+End of validation loop
+Validation error: 0.4217 | bandgap Error: 0.4138 | HOMO Error: 0.5241 | LUMO Error: 0.3273
+Epoch 84 validation complete
+Completed Epoch 84/100 in 7.75 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.01batch/s, loss=0.4232]
+Epoch loss: 0.4232
+Training time: 5.93 s
+Validating...
+End of validation loop
+Validation error: 0.3818 | bandgap Error: 0.3500 | HOMO Error: 0.5143 | LUMO Error: 0.2812
+Epoch 85 validation complete
+Completed Epoch 85/100 in 7.56 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.16batch/s, loss=0.3987]
+Epoch loss: 0.3987
+Training time: 5.20 s
+Validating...
+End of validation loop
+Validation error: 0.3895 | bandgap Error: 0.3578 | HOMO Error: 0.5442 | LUMO Error: 0.2663
+Epoch 86 validation complete
+Completed Epoch 86/100 in 7.05 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.09s/batch, loss=0.3948]
+Epoch loss: 0.3948
+Training time: 6.54 s
+Validating...
+End of validation loop
+Validation error: 0.4522 | bandgap Error: 0.4834 | HOMO Error: 0.5680 | LUMO Error: 0.3052
+Epoch 87 validation complete
+Completed Epoch 87/100 in 8.41 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.24batch/s, loss=0.3335]
+Epoch loss: 0.3335
+Training time: 4.85 s
+Validating...
+End of validation loop
+Validation error: 0.5768 | bandgap Error: 0.7207 | HOMO Error: 0.6165 | LUMO Error: 0.3931
+Epoch 88 validation complete
+Completed Epoch 88/100 in 6.49 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.10batch/s, loss=0.3438]
+Epoch loss: 0.3438
+Training time: 5.44 s
+Validating...
+End of validation loop
+Validation error: 0.7138 | bandgap Error: 1.0018 | HOMO Error: 0.6434 | LUMO Error: 0.4963
+Epoch 89 validation complete
+Completed Epoch 89/100 in 7.25 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.25batch/s, loss=0.3664]
+Epoch loss: 0.3664
+Training time: 4.81 s
+Validating...
+End of validation loop
+Validation error: 0.8044 | bandgap Error: 1.2059 | HOMO Error: 0.6289 | LUMO Error: 0.5784
+Epoch 90 validation complete
+Completed Epoch 90/100 in 6.69 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.18batch/s, loss=0.4955]
+Epoch loss: 0.4955
+Training time: 5.07 s
+Validating...
+End of validation loop
+Validation error: 0.9311 | bandgap Error: 1.4121 | HOMO Error: 0.6219 | LUMO Error: 0.7594
+Epoch 91 validation complete
+Completed Epoch 91/100 in 7.78 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.08batch/s, loss=0.6323]
+Epoch loss: 0.6323
+Training time: 5.56 s
+Validating...
+End of validation loop
+Validation error: 1.0002 | bandgap Error: 1.5118 | HOMO Error: 0.6461 | LUMO Error: 0.8429
+Epoch 92 validation complete
+Completed Epoch 92/100 in 7.41 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.17batch/s, loss=0.6103]
+Epoch loss: 0.6103
+Training time: 5.15 s
+Validating...
+End of validation loop
+Validation error: 1.0289 | bandgap Error: 1.5407 | HOMO Error: 0.6775 | LUMO Error: 0.8683
+Epoch 93 validation complete
+Completed Epoch 93/100 in 6.96 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.13batch/s, loss=0.5735]
+Epoch loss: 0.5735
+Training time: 5.33 s
+Validating...
+End of validation loop
+Validation error: 0.9419 | bandgap Error: 1.3789 | HOMO Error: 0.6435 | LUMO Error: 0.8033
+Epoch 94 validation complete
+Completed Epoch 94/100 in 6.97 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.13batch/s, loss=0.4028]
+Epoch loss: 0.4028
+Training time: 5.32 s
+Validating...
+End of validation loop
+Validation error: 0.8184 | bandgap Error: 1.1856 | HOMO Error: 0.6339 | LUMO Error: 0.6357
+Epoch 95 validation complete
+Completed Epoch 95/100 in 7.18 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.06s/batch, loss=0.3419]
+Epoch loss: 0.3419
+Training time: 6.39 s
+Validating...
+End of validation loop
+Validation error: 0.6997 | bandgap Error: 0.9774 | HOMO Error: 0.5729 | LUMO Error: 0.5488
+Epoch 96 validation complete
+Completed Epoch 96/100 in 8.21 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.01batch/s, loss=0.3083]
+Epoch loss: 0.3083
+Training time: 5.96 s
+Validating...
+End of validation loop
+Validation error: 0.5839 | bandgap Error: 0.7538 | HOMO Error: 0.5175 | LUMO Error: 0.4802
+Epoch 97 validation complete
+Completed Epoch 97/100 in 7.62 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.16batch/s, loss=0.3132]
+Epoch loss: 0.3132
+Training time: 5.16 s
+Validating...
+End of validation loop
+Validation error: 0.5028 | bandgap Error: 0.5970 | HOMO Error: 0.4817 | LUMO Error: 0.4297
+Epoch 98 validation complete
+Completed Epoch 98/100 in 6.96 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:04<00:00,  1.22batch/s, loss=0.3371]
+Epoch loss: 0.3371
+Training time: 4.92 s
+Validating...
+End of validation loop
+Validation error: 0.4701 | bandgap Error: 0.5231 | HOMO Error: 0.5117 | LUMO Error: 0.3754
+Epoch 99 validation complete
+Completed Epoch 99/100 in 6.76 s
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.07s/batch, loss=0.3608]
+Epoch loss: 0.3608
+Training time: 6.41 s
+Validating...
+End of validation loop
+Validation error: 0.4848 | bandgap Error: 0.5384 | HOMO Error: 0.5696 | LUMO Error: 0.3463
+Epoch 100 validation complete
+Completed Epoch 100/100 in 8.06 s
+Avg epoch: 7.53 s | Total: 772.28 s
+Final model saved to ./saved_models/end_model.ckpt
