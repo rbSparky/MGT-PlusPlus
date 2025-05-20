@@ -83,7 +83,7 @@ class PAMNet(nn.Module):
 
     def indices(self, g:dgl.DGLGraph):
         row, col = g.edges(form="uv")
-        print(row, col)
+        # print(row, col)
         value = torch.arange(row.size(0), device=row.device)
         adj_t = SparseTensor(row=col, col=row, value=value,sparse_sizes=(g.num_nodes(), g.num_nodes()))
         adj_t_row = adj_t[row]
@@ -118,7 +118,7 @@ class PAMNet(nn.Module):
     def forward(self, g:dgl.DGLGraph,
                  x, y):
         g_edge_index = g.edges(form="uv")
-        print(g_edge_index)
+        # print(g_edge_index)
         # lg_edge_index = lg.edge_index
         # fg_edge_index = fg.edge_index
         
@@ -166,17 +166,16 @@ class PAMNet(nn.Module):
             # f = self.global_layer[i](f, fg_edge_index, fg_rbf)
             # lx = self.global_layer[i](lx, lg_edge_index, lg_rbf)
         ## now returning the updated x, f, and lx
-        global_attn_score = torch.stack(global_attn_score, dim=0)
-
-        global_attn_score = F.leaky_relu(global_attn_score, negative_slope=0.2)
-        global_attn_score = self.softmax(global_attn_score)
-        out = out * global_attn_score
-        out = out.sum(dim=0)
-
-        # print(f"out shape: {out.shape}")    
-        ## now doing similar  for edge features
+        out = out.squeeze(0)
+        # global_attn_score = torch.stack(global_attn_score, dim=0)
+        # print(f"out shape: {out.shape} , x shape: {x.shape}")   
+        ## pooling the graph
+        out = global_mean_pool(out,torch.zeros(out.shape[0], device=out.device,dtype=torch.long))
+        # global_attn_score = F.leaky_relu(global_attn_score, negative_slope=0.2)
+        # global_attn_score = self.softmax(global_attn_score)
+        # out = out * global_attn_score
         y = self.mlp_edge_res(y)
-        return out,y
+        return out ,y
 
 
 
@@ -204,7 +203,7 @@ class encoder(nn.Module):
         alignns = [alignn.ALIGNNLayer(encoder_dims, rank_factor=rank_factor) for _ in range(n_alignn - 1)]
         alignns.append(alignn.ALIGNNLayer(encoder_dims, edge_norm=(True, False), rank_factor=rank_factor))
 
-        pamnets = [PAMNet(Config(encoder_dims, encoder_dims, n_gnn, 0.5, 3)) for _ in range(n_gnn - 1)]
+        pamnets = [PAMNet(Config(encoder_dims, encoder_dims, n_gnn, 0.5, 3)) for _ in range(n_gnn)]
 
         self.mha_layers = nn.ModuleList(mha_layers)
         self.alignn_layers = nn.ModuleList(alignns)
@@ -305,6 +304,8 @@ class FusedGraphformer(nn.Module):
             # print(f"fc_attr shape: {fc_attr.shape}")
         graph_attr = self.global_pool(g, atom_attr)
         out = self.final_fc(graph_attr)
+        # print("Final output shape: ", out.shape)
+        # print("________-------------------------------------------")
         return out, atom_attr, edge_attr, angle_attr, fc_attr
 
     def freeze_pretrain(self):

@@ -108,15 +108,15 @@ def validate(args, model, loader, criterion, fabric):
     print("Validating...")
     with torch.no_grad():
         for (g, lg, fg, target, _) in loader:
-            print("HIIIIII")
+            # print("HIIIIII")
             clear_memory()
             g, lg, fg = g.to(fabric.device, non_blocking=True), lg.to(fabric.device, non_blocking=True), fg.to(fabric.device, non_blocking=True)
             target = target.to(fabric.device, non_blocking=True)
             with torch.autocast(device_type=fabric.device.type, dtype=torch.float16, enabled=fabric.device.type == "cuda"):
                 output, _, _, _, _ = model(g, lg, fg)
             
-            print(f"output of model: {output}")
-            print(f"target: {target}")
+            # print(f"output of model: {output}")
+            # print(f"target: {target}")
 
             err = criterion(output, target)
             epoch_error[0] += err.item()

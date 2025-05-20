@@ -129,7 +129,7 @@ class Global_MessagePassing(MessagePassing):
         self.W_edge_attr = nn.Linear(self.dim, self.dim, bias=False)
 
         self.mlp_out = MLP([self.dim, self.dim, self.dim, self.dim])
-        self.W_out = nn.Linear(self.dim, 1)
+        self.W_out = nn.Linear(self.dim, self.dim)
         self.W = nn.Parameter(torch.Tensor(self.dim, 1))
 
         self.init()
@@ -143,7 +143,6 @@ class Global_MessagePassing(MessagePassing):
 
        
         edge_index = torch.stack(edge_index, dim=0)
-        print(edge_index.shape)
         x = x + self.propagate(edge_index, x=x, num_nodes=x.size(0), edge_attr=edge_attr)
         x = self.mlp_x2(x)
 
