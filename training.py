@@ -68,6 +68,14 @@ def train(args, model, loader, optimizer, criterion, fabric):
                     with fabric.no_backward_sync(model, enabled=is_accumulating):
                         output, _, _, _, _ = model(g, lg, fg)
                         loss = criterion(output, target) / args.n_cum
+                        if torch.isnan(loss) or torch.isinf(loss):
+                            fabric.print(f"[iteration {iteration}] skipping batch—loss is {loss}")
+                            optimizer.zero_grad(set_to_none=True)
+                            torch.cuda.empty_cache()
+                            print(f"Graph: {g}")
+                            print(f"Line Graph: {lg}")
+                            print(f"Full Graph: {fg}")
+                            continue
                         fabric.backward(loss)
                 if not is_accumulating:
                     optimizer.step()
