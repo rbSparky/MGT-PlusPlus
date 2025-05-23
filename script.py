@@ -117,7 +117,7 @@ def main():
     
     # Save id_prop.csv
     output_path = os.path.join(args.output_dir, 'id_prop.csv')
-    id_prop_df.to_csv(output_path, index=False)
+    id_prop_df.to_csv(output_path, index=False,header=False)
     logger.info(f"Saved id_prop.csv with {len(id_prop_df)} entries to {output_path}")
     
     # Create atom_init.json if needed

@@ -24,6 +24,8 @@ from model.alignn import EdgeGatedGraphConv
 from model.graphformer import Graphformer, encoder
 from utils.datasets import StructureDataset
 import wandb
+from torch.nn.utils import clip_grad_norm_
+from torch.utils.data import Subset
 
 torch.backends.cudnn.benchmark = True
 torch.backends.cuda.matmul.allow_tf32 = True
@@ -76,7 +78,14 @@ def train(args, model, loader, optimizer, criterion, fabric):
                             print(f"Line Graph: {lg}")
                             print(f"Full Graph: {fg}")
                             continue
+                        ## applying gradient clipping
+                        
                         fabric.backward(loss)
+                        clip_grad_norm_(
+                            model.parameters(),
+                            max_norm=1.0,          # try 1.0, 2.0, 5.0, …
+                            norm_type=2.0          # L2 norm
+                        )
                 if not is_accumulating:
                     optimizer.step()
                     optimizer.zero_grad(set_to_none=True)
@@ -119,6 +128,12 @@ def validate(args, model, loader, criterion, fabric):
             with torch.autocast(device_type=fabric.device.type, dtype=torch.float16, enabled=fabric.device.type == "cuda"):
                 output, _, _, _, _ = model(g, lg, fg)
             err = criterion(output, target)
+            if(torch.isnan(err) or torch.isinf(err)):
+                fabric.print(f"Skipping batch—error is {err} due to numerical instability")
+                print(f"Graph: {g}")
+                print(f"Line Graph: {lg}")
+                print(f"Full Graph: {fg}")
+                continue    
             epoch_error[0] += err.item()
             epoch_error[1] += target.size(0)
             if args.out_dims > 1:
@@ -168,6 +183,13 @@ def main(args):
                         loggers=logger)
     fabric.launch()
     dataset = StructureDataset(args, process=args.process)
+    dataset_copy = dataset  
+    n_total     = len(dataset)
+    n_subset    = int(0.2 * n_total)  # size of the subset
+    indices     = torch.randperm(n_total)[:n_subset]  # randomly pick 20%
+    subset   = Subset(dataset, indices)
+    subset.collate_tt = dataset.collate_tt
+    dataset = subset
     n_train = int(len(dataset) * args.train_split)
     n_val = len(dataset) - n_train
     train_ds, val_ds = torch.utils.data.random_split(dataset, [n_train, n_val])
