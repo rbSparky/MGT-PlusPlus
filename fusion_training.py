@@ -25,6 +25,8 @@ from model.alignn import EdgeGatedGraphConv
 from model.pamnet_adaptation.orig_defn import FusedGraphformer,encoder,PAMNet
 from utils.datasets import StructureDataset
 import wandb
+from torch.nn.utils import clip_grad_norm_
+from torch.utils.data import Subset
 
 torch.backends.cudnn.benchmark = True
 torch.backends.cuda.matmul.allow_tf32 = True
@@ -58,6 +60,15 @@ def train(args, model, loader, optimizer, criterion, fabric):
     with tqdm(total=len(loader), desc="Training", unit="batch", disable=not fabric.is_global_zero) as pbar:
         for iteration, (g, lg, fg, target, _) in enumerate(loader):
             clear_memory()
+            # right before your forward pass
+            if torch.isnan(target).any() or torch.isinf(target).any():
+                raise ValueError(f"Bad labels in batch {iteration}")
+            # right at the top of your batch loop, before g.to(...)
+
+            if torch.isnan(g.ndata['node_feats']).any() or torch.isinf(g.ndata['node_feats']).any():
+                raise ValueError(f"Bad input features in batch {iteration}")
+            if torch.isnan(g.edata['edge_feats']).any() or torch.isinf(g.edata['edge_feats']).any():
+                raise ValueError(f"Bad input features in batch {iteration}")
             g, lg, fg = g.to(fabric.device, non_blocking=True), lg.to(fabric.device, non_blocking=True), fg.to(fabric.device, non_blocking=True)
             # print(g)
             # print(lg)
@@ -70,7 +81,20 @@ def train(args, model, loader, optimizer, criterion, fabric):
                         output, _, _, _, _ = model(g, lg, fg)
                         # print(output)
                         loss = criterion(output, target) / args.n_cum
+                        if torch.isnan(loss) or torch.isinf(loss):
+                            fabric.print(f"[iteration {iteration}] skipping batch—loss is {loss}")
+                            optimizer.zero_grad(set_to_none=True)
+                            torch.cuda.empty_cache()
+                            print(f"Graph: {g}")
+                            print(f"Line Graph: {lg}")
+                            print(f"Full Graph: {fg}")
+                            continue
                         fabric.backward(loss)
+                        clip_grad_norm_(
+                            model.parameters(),
+                            max_norm=1.0,          # try 1.0, 2.0, 5.0, …
+                            norm_type=2.0          # L2 norm
+                        )
                 if not is_accumulating:
                     optimizer.step()
                     optimizer.zero_grad(set_to_none=True)
@@ -170,6 +194,14 @@ def main(args):
     fabric.launch()
     print("Creating dataset...")
     dataset = StructureDataset(args, process=args.process)
+    n_total = len(dataset)
+    if(args.subset_percent < 100):
+        n_subset    = int(0.2 * n_total)  # size of the subset
+        indices     = torch.randperm(n_total)[:n_subset]  # randomly pick 20%
+        dataset_copy = dataset ## shallow copy coz why not
+        subset   = Subset(dataset, indices)
+        subset.collate_tt = dataset.collate_tt
+        dataset = subset
     n_train = int(len(dataset) * (args.train_split/100))
     n_val = len(dataset) - n_train
     print(f"Train size: {n_train} | Validation size: {n_val}")
@@ -200,6 +232,20 @@ def main(args):
                  f"\tALIGNNs  - {args.n_alignn}\n"
                  f"\tGNNs     - {args.n_gnn}\n"
                  f"\tParams   - {num_params}")
+    
+    def nparams(m):        # tiny helper
+        return sum(p.numel() for p in m.parameters() if p.requires_grad)
+    print(f"TOTAL  : {nparams(model)/1e6:7.2f} M\n")
+    # for name, mod in model.named_children():
+    #     print(f"{name:15s}: {nparams(mod)/1e6:7.2f} M")
+
+    for name, mod in model.encoders[0].named_children():
+        print(f"{name:15s}: {nparams(mod)/1e6:7.2f} M")
+
+    ## to print whats inside pamnet_leayers which is a child of model.encoders[0]
+    for name, mod in model.encoders[0].pamnet_layers[0].global_layer[0].named_children():
+        print(f"{name:15s}: {nparams(mod)/1e6:7.2f} M")
+
     model = fabric.setup_module(model)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.decay)
     optimizer = fabric.setup_optimizers(optimizer)
@@ -297,6 +343,7 @@ if __name__ == "__main__":
     parser.add_argument("--n_gnn", type=int, default=2)
     parser.add_argument("--n_heads", type=int, default=4)
     parser.add_argument("--residual", type=int, default=1, choices=[0, 1])
+    parser.add_argument("--subset_percent", type=int, default=100)
     args = parser.parse_args()
     args.residual = bool(args.residual)
     args.periodic = bool(args.periodic)
