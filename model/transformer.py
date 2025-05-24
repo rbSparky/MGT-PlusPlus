@@ -127,7 +127,7 @@ class multiheaded(nn.Module):
 
         self.linformer_attn = LinformerSelfAttention(
             dim = heads * out_channels,
-            seq_len = 1024,
+            seq_len = 2048,
             heads = heads,
             k = k,
             one_kv_head = True,
