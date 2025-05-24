@@ -8,7 +8,7 @@ import torch_geometric as pyg
 from torch_geometric.nn import MessagePassing
 from torch_geometric.nn.inits import glorot
 from torch_scatter import scatter
-
+from model.pamnet_adaptation.utils import LowRankLinear
 
 class SiLU(nn.Module):
     def __init__(self):
@@ -20,7 +20,7 @@ class SiLU(nn.Module):
 
 def MLP(channels):
     return Sequential(*[
-        Sequential(Linear(channels[i - 1], channels[i]), SiLU())
+        Sequential(LowRankLinear(in_features=channels[i - 1],out_features=channels[i],rank_factor=8), SiLU())
         for i in range(1, len(channels))])
 
 
@@ -126,10 +126,10 @@ class Global_MessagePassing(MessagePassing):
         self.res3 = Res(self.dim)
 
         self.mlp_m = MLP([self.dim * 3, self.dim])
-        self.W_edge_attr = nn.Linear(self.dim, self.dim, bias=False)
+        self.W_edge_attr = LowRankLinear(self.dim, self.dim, bias=False)
 
         self.mlp_out = MLP([self.dim, self.dim, self.dim, self.dim])
-        self.W_out = nn.Linear(self.dim, self.dim)
+        self.W_out = LowRankLinear(self.dim, self.dim)
         self.W = nn.Parameter(torch.Tensor(self.dim, 1))
 
         self.init()
@@ -176,13 +176,13 @@ class Local_MessagePassing(torch.nn.Module):
         self.mlp_m_ji = MLP([3 * self.dim, self.dim])
         self.mlp_m_kj = MLP([3 * self.dim, self.dim])
         self.mlp_sbf = MLP([self.dim, self.dim, self.dim])
-        self.lin_rbf = nn.Linear(self.dim, self.dim, bias=False)
+        self.lin_rbf = LowRankLinear(self.dim, self.dim, bias=False)
 
         self.res1 = Res(self.dim)
         self.res2 = Res(self.dim)
         self.res3 = Res(self.dim)
 
-        self.lin_rbf_out = nn.Linear(self.dim, self.dim, bias=False)
+        self.lin_rbf_out = LowRankLinear(self.dim, self.dim, bias=False)
         self.mlp_x2 = MLP([self.dim, self.dim])
         
         self.mlp_out = MLP([self.dim, self.dim, self.dim, self.dim])

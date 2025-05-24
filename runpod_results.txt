@@ -1,0 +1,173 @@
+Training:   0%|                                                                              | 0/408 [00:00<?, ?batch/s]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 1 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 1 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/dgl/backend/pytorch/sparse.py:157: FutureWarning: `torch.cuda.amp.autocast_mode._cast(value, dtype)` is deprecated. Please use `torch.amp.autocast_mode._cast(value, 'cuda', dtype)` instead.
+  return th.cuda.amp.autocast_mode._cast(
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/dgl/backend/pytorch/sparse.py:148: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  return th.cuda.amp.autocast(enabled=False)
+Training:   2%|█                                                        | 8/408 [00:16<09:00,  1.35s/batch, loss=0.5127]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 2 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:   3%|█▋                                                      | 12/408 [00:26<10:44,  1.63s/batch, loss=0.4774]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 2 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:   4%|██                                                      | 15/408 [00:32<11:32,  1.76s/batch, loss=0.4658]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 1 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:   4%|██▏                                                     | 16/408 [00:33<10:02,  1.54s/batch, loss=0.4624]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 1 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:   5%|██▌                                                     | 19/408 [00:40<10:59,  1.69s/batch, loss=0.4673]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 2 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:   6%|███▍                                                    | 25/408 [00:52<11:40,  1.83s/batch, loss=0.4561]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:   8%|████▋                                                   | 34/408 [01:10<09:51,  1.58s/batch, loss=0.4178]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  23%|████████████▉                                           | 94/408 [02:55<07:27,  1.43s/batch, loss=0.3366]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 2 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  31%|████████████████▉                                      | 126/408 [04:00<07:40,  1.63s/batch, loss=0.3189]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  39%|█████████████████████▎                                 | 158/408 [04:58<05:11,  1.25s/batch, loss=0.3062]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 6 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  46%|█████████████████████████                              | 186/408 [06:02<11:45,  3.18s/batch, loss=0.3071]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 3 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  46%|█████████████████████████▍                             | 189/408 [06:06<06:59,  1.91s/batch, loss=0.3078]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  52%|████████████████████████████▋                          | 213/408 [06:53<06:47,  2.09s/batch, loss=0.3086]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  67%|█████████████████████████████████████                  | 275/408 [08:57<03:51,  1.74s/batch, loss=0.3106]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  74%|████████████████████████████████████████▌              | 301/408 [09:44<03:37,  2.03s/batch, loss=0.3126]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  78%|███████████████████████████████████████████            | 319/408 [10:14<02:11,  1.48s/batch, loss=0.3112]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  80%|████████████████████████████████████████████           | 327/408 [10:26<01:58,  1.46s/batch, loss=0.3109]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 12 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  81%|████████████████████████████████████████████▍          | 330/408 [10:34<02:42,  2.08s/batch, loss=0.3105]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 3 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  87%|███████████████████████████████████████████████▋       | 354/408 [11:24<01:44,  1.94s/batch, loss=0.3070]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 3 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  93%|███████████████████████████████████████████████████▎   | 381/408 [12:07<00:35,  1.33s/batch, loss=0.3058]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 13 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  96%|████████████████████████████████████████████████████▉  | 393/408 [12:28<00:25,  1.71s/batch, loss=0.3066]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 5 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [12:51<00:00,  1.89s/batch, loss=0.3063]
+Epoch loss: 0.3063
+Training time: 771.87 s
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 1 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 2 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 1 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 2 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 1 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 7 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 2 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 2 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 5 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 3 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 1 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 4 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 8 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Validation error: 0.1501 | bandgap Error: 0.1296 | HOMO Error: 0.1679 | LUMO Error: 0.1526
+Epoch 1 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 1/100 in 967.79 s
+Training:   3%|█▋                                                      | 12/408 [00:29<10:49,  1.64s/batch, loss=0.2322]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 3 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  23%|█████████████                                           | 95/408 [02:54<06:15,  1.20s/batch, loss=0.2656]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 5 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 6 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  43%|███████████████████████▋                               | 176/408 [05:25<08:23,  2.17s/batch, loss=0.2707]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 13 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  98%|█████████████████████████████████████████████████████▉ | 400/408 [12:16<00:11,  1.44s/batch, loss=0.2860]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 12 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [12:28<00:00,  1.83s/batch, loss=0.2857]
+Epoch loss: 0.2857
+Training time: 748.65 s
+Validation error: 0.1468 | bandgap Error: 0.1200 | HOMO Error: 0.1635 | LUMO Error: 0.1567
+Epoch 2 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 2/100 in 943.51 s
+Training:  18%|██████████                                              | 73/408 [02:17<07:42,  1.38s/batch, loss=0.2871]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 13 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  97%|█████████████████████████████████████████████████████▌ | 397/408 [12:13<00:18,  1.71s/batch, loss=0.2701]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 5 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [12:32<00:00,  1.84s/batch, loss=0.2701]
+Epoch loss: 0.2701
+Training time: 752.31 s
+Validation error: 0.1454 | bandgap Error: 0.1196 | HOMO Error: 0.1680 | LUMO Error: 0.1487
+Epoch 3 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 3/100 in 945.30 s
+Training:  93%|███████████████████████████████████████████████████▎   | 381/408 [11:51<00:49,  1.85s/batch, loss=0.2824]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 5 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [12:38<00:00,  1.86s/batch, loss=0.2802]
+Epoch loss: 0.2802
+Training time: 758.42 s
+Validation error: 0.1431 | bandgap Error: 0.1221 | HOMO Error: 0.1619 | LUMO Error: 0.1453
+Epoch 4 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 4/100 in 965.55 s
+Training:  29%|███████████████▉                                       | 118/408 [03:44<06:02,  1.25s/batch, loss=0.2744]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 6 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training:  56%|██████████████████████████████▊                        | 229/408 [07:12<06:05,  2.04s/batch, loss=0.2667]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 13 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [12:52<00:00,  1.89s/batch, loss=0.2617]
+Epoch loss: 0.2617
+Training time: 772.38 s
+Validation error: 0.1416 | bandgap Error: 0.1145 | HOMO Error: 0.1669 | LUMO Error: 0.1433
+Epoch 5 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 5/100 in 973.27 s
+Training:   0%|                                                                              | 0/408 [00:00<?, ?batch/s]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 6 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [12:52<00:00,  1.89s/batch, loss=0.2669]
+Epoch loss: 0.2669
+Training time: 772.80 s
+Validation error: 0.1382 | bandgap Error: 0.1177 | HOMO Error: 0.1500 | LUMO Error: 0.1470
+Epoch 6 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 6/100 in 972.62 s
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [12:27<00:00,  1.83s/batch, loss=0.2745]
+Epoch loss: 0.2745
+Training time: 747.96 s
+Validation error: 0.1427 | bandgap Error: 0.1174 | HOMO Error: 0.1683 | LUMO Error: 0.1425
+Epoch 7 validation complete
+Completed Epoch 7/100 in 945.51 s
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [13:30<00:00,  1.99s/batch, loss=0.2408]
+Epoch loss: 0.2408
+Training time: 810.92 s
+Validation error: 0.1443 | bandgap Error: 0.1204 | HOMO Error: 0.1509 | LUMO Error: 0.1615
+Epoch 8 validation complete
+Completed Epoch 8/100 in 1018.12 s
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [12:32<00:00,  1.84s/batch, loss=0.2831]
+Epoch loss: 0.2831
+Training time: 752.26 s
+Validation error: 0.1440 | bandgap Error: 0.1238 | HOMO Error: 0.1652 | LUMO Error: 0.1430
+Epoch 9 validation complete
+Completed Epoch 9/100 in 947.03 s
+Training:  86%|███████████████████████████████████████████████        | 349/408 [10:35<01:42,  1.75s/batch, loss=0.2511]/workspace/MGT-PlusPlus/mgt/lib/python3.10/site-packages/pymatgen/core/structure.py:3100: UserWarning: Issues encountered while parsing CIF: 12 fractional coordinates rounded to ideal values to avoid issues with finite precision.
+  struct = parser.parse_structures(primitive=primitive)[0]
+Training: 100%|███████████████████████████████████████████████████████| 408/408 [12:27<00:00,  1.83s/batch, loss=0.2523]
+Epoch loss: 0.2523
+Training time: 747.69 s
+Validation error: 0.1456 | bandgap Error: 0.1199 | HOMO Error: 0.1688 | LUMO Error: 0.1481
+Epoch 10 validation complete
+Completed Epoch 10/100 in 946.39 s
+Training:  32%|█████████████████▍       

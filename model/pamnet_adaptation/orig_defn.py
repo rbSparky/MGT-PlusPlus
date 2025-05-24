@@ -15,35 +15,7 @@ from torch_geometric.nn import global_mean_pool, global_add_pool, radius, knn
 from torch_geometric.utils import remove_self_loops
 
 from model.pamnet_adaptation.megik import Global_MessagePassing, Local_MessagePassing, BesselBasisLayer, SphericalBasisLayer, MLP,Res
-
-class LowRankLinear(nn.Module):
-    def __init__(self, in_features: int, out_features: int, rank_factor: int = 4, bias: bool = True):
-        super().__init__()
-        self.rank_factor = rank_factor
-        if rank_factor <= 0 or in_features % rank_factor != 0 or out_features % rank_factor != 0:
-             if rank_factor > 0:
-                 print(f"Warning: feature_dims ({in_features}, {out_features}) not divisible by rank_factor ({rank_factor}). Using standard Linear layer.")
-             self.layer = nn.Linear(in_features, out_features, bias=bias)
-             self.is_low_rank = False
-        else:
-            rank = in_features // rank_factor
-            self.layer = nn.Sequential(
-                nn.Linear(in_features, rank, bias=False),
-                nn.Linear(rank, out_features, bias=bias)
-            )
-            self.is_low_rank = True
-
-    def forward(self, x):
-        return self.layer(x)
-
-    def __repr__(self):
-         if self.is_low_rank:
-              in_f = self.layer[0].in_features
-              out_f = self.layer[1].out_features
-              rank = self.layer[0].out_features
-              return f"LowRankLinear(in={in_f}, out={out_f}, rank={rank})"
-         else:
-              return f"{self.layer}"
+from model.pamnet_adaptation.utils import LowRankLinear
 
 
 class Config(object):

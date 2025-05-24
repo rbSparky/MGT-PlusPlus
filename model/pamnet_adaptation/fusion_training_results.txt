@@ -827,3 +827,51 @@ Epoch 100 validation complete
 Completed Epoch 100/100 in 7.42 s
 Avg epoch: 8.21 s | Total: 840.23 s
 Final model saved to ./saved_models/end_model.ckpt
+
+
+
+
+
+#### LORA TO ALL
+
+/home/saigum/Desktop/MGT-PlusPlus/mgt/lib/python3.10/site-packages/dgl/backend/pytorch/sparse.py:148: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  return th.cuda.amp.autocast(enabled=False)
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:07<00:00,  1.33s/batch, loss=2.3962]
+Epoch loss: 2.3962
+Training time: 8.01 s
+Validating...
+End of validation loop
+Validation error: 1.2210 | bandgap Error: 1.2281 | HOMO Error: 2.1626 | LUMO Error: 0.2723
+Epoch 1 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 1/100 in 10.79 s
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.00s/batch, loss=2.3959]
+Epoch loss: 2.3959
+Training time: 6.03 s
+Validating...
+End of validation loop
+Validation error: 1.2212 | bandgap Error: 1.2293 | HOMO Error: 2.1606 | LUMO Error: 0.2738
+Epoch 2 validation complete
+Completed Epoch 2/100 in 8.20 s
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:05<00:00,  1.06batch/s, loss=1.2581]
+Epoch loss: 1.2581
+Training time: 5.67 s
+Validating...
+End of validation loop
+Validation error: 0.5153 | bandgap Error: 0.4232 | HOMO Error: 0.8502 | LUMO Error: 0.2726
+Epoch 3 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 3/100 in 8.33 s
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:07<00:00,  1.27s/batch, loss=0.4156]
+Epoch loss: 0.4156
+Training time: 7.60 s
+Validating...
+End of validation loop
+Validation error: 0.2217 | bandgap Error: 0.1867 | HOMO Error: 0.1733 | LUMO Error: 0.3053
+Epoch 4 validation complete
+New best model saved to ./saved_models/lowest.ckpt
+Completed Epoch 4/100 in 11.33 s
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:06<00:00,  1.00s/batch, loss=0.5699]
+Epoch loss: 0.5699
+Training time: 6.02 s
+Validating...
