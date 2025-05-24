@@ -175,7 +175,7 @@ class encoder(nn.Module):
         alignns = [alignn.ALIGNNLayer(encoder_dims, rank_factor=rank_factor) for _ in range(n_alignn - 1)]
         alignns.append(alignn.ALIGNNLayer(encoder_dims, edge_norm=(True, False), rank_factor=rank_factor))
 
-        pamnets = [PAMNet(Config(encoder_dims, encoder_dims, n_gnn, 0.5, 3)) for _ in range(n_gnn)]
+        pamnets = [PAMNet(Config(encoder_dims, encoder_dims, n_gnn, 2.6, 20.0)) for _ in range(n_gnn)]
 
         self.mha_layers = nn.ModuleList(mha_layers)
         self.alignn_layers = nn.ModuleList(alignns)
