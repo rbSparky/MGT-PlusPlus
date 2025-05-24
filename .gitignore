@@ -21,3 +21,14 @@ mgt.p*
 
 qmof_database/*
 wandb/*
+saved_models/*
+wandb/*
+modules/__pycache__/
+utils/*__pycache__/
+
+saved_models/*
+wandb/*
+modules/__pycache__/
+utils/*__pycache__/
+qmof_database/*
+wandb/*

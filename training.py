@@ -183,13 +183,7 @@ def main(args):
                         loggers=logger)
     fabric.launch()
     dataset = StructureDataset(args, process=args.process)
-    dataset_copy = dataset  
     n_total     = len(dataset)
-    n_subset    = int(0.2 * n_total)  # size of the subset
-    indices     = torch.randperm(n_total)[:n_subset]  # randomly pick 20%
-    subset   = Subset(dataset, indices)
-    subset.collate_tt = dataset.collate_tt
-    dataset = subset
     n_train = int(len(dataset) * args.train_split)
     n_val = len(dataset) - n_train
     train_ds, val_ds = torch.utils.data.random_split(dataset, [n_train, n_val])
@@ -212,6 +206,7 @@ def main(args):
     train_loader = fabric.setup_dataloaders(train_loader, move_to_device=False)
     val_loader   = fabric.setup_dataloaders(val_loader,   move_to_device=False)
     model = Graphformer(args=args)
+    
     num_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     fabric.print("ARCHITECTURE:\n"
                  f"\tLayers   - {args.num_layers}\n"
